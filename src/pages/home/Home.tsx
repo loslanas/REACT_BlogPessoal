@@ -3,7 +3,8 @@ function Home() {
         <div className="
         flex
         justify-center
-        bg-indigo-900
+        bg-orange-700
+        
         ">
             <div className ="
             container
@@ -22,6 +23,7 @@ function Home() {
                     <h2 className="
                     text-5xl
                     font-bold
+                    
                     ">
                         Seja Bem Vinde!
                         </h2>
@@ -32,7 +34,7 @@ function Home() {
                     <div className="
                     flex
                     justify-around
-                    gap-4">
+                    gap-2">
                         <div className="
                         rounded
                         border-white
@@ -40,15 +42,19 @@ function Home() {
                         border-2
                         py-2
                         px-4
-                        text-white">
+                        text-white
+                        hover:text-orange-500 hover:bg-orange-800 hover:border-orange-800">
                         Nova Postagem
                             </div>
                     </div>
                 </div>
  
                 <div className="flex justify-center">
+                   
+                   
+                   
                     <img
-                        src="https://i.imgur.com/VpwApCU.png"
+                        src="https://ik.imagekit.io/22g34n0mo/SVG/Static%20assets-amico.svg?updatedAt=1739556491194"
                         alt="Imagem da Página Home"
                         className="w-2/3"
                        
