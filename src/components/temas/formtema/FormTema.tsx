@@ -134,6 +134,3 @@ function FormTema() {
 
 export default FormTema;
 
-function retornar() {
-    throw new Error("Function not implemented.");
-}
