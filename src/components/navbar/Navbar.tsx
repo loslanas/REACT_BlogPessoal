@@ -24,7 +24,7 @@ function Navbar() {
         </div>
         <div id ="menu">
           <ul className="flex gap-4 ">
-            <Link to="/" className="hover:text-orange-500">Postagens</Link>
+            <Link to="/postagens" className="hover:text-orange-500">Postagens</Link>
             <Link to="/temas" className="hover:text-orange-500">Temas</Link>         
             <Link to='/cadastrartema' className="hover:text-orange-500">Cadastrar Tema</Link>      
             <Link to="/" className="hover:text-orange-500">Perfil</Link>         

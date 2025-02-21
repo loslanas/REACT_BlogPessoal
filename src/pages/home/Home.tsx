@@ -1,5 +1,9 @@
+import ListaPostagens from "../../components/postagens/listapostagens/ListaPostagens"
+import ModalPostagem from "../../components/postagens/modalpostagem/ModalPostagem"
+
 function Home() {
     return (
+        <>
         <div className="
         flex
         justify-center
@@ -44,7 +48,7 @@ function Home() {
                         px-4
                         text-white
                         hover:text-orange-500 hover:bg-orange-800 hover:border-orange-800">
-                        Nova Postagem
+                        <ModalPostagem />
                             </div>
                     </div>
                 </div>
@@ -62,6 +66,8 @@ function Home() {
                 </div>
             </div>
         </div>
+        <ListaPostagens/>
+        </>
     )
 }
  
