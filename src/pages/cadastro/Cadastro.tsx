@@ -4,6 +4,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import Usuario from '../../models/Usuario';
 import { cadastrarUsuario } from '../../services/Service';
 import { RotatingSquare } from 'react-loader-spinner';
+import { ToastAlerta } from '../../utils/ToastAlerta';
 
 function Cadastro() {
   const navigate = useNavigate();
@@ -52,13 +53,13 @@ function Cadastro() {
       try{
 
         await cadastrarUsuario("/usuarios/cadastrar", usuario, setUsuario)
-        alert("Usuário cadastrado com sucesso!")
+        ToastAlerta("Usuário Cadastrado com sucesso!", "sucesso")
 
       }catch(error){
-        alert("Erro ao cadastrar usuário")
+        ToastAlerta("Erro ao Cadastrar Usuário", "erro")
       }
     } else{
-      alert("Senha inválida ou não confere com a confirmação")
+      ToastAlerta("Senha inválida ou não confere com a confirmação", "erro")
       setUsuario({...usuario,senha:""})
       setConfirmarSenha("")
     }

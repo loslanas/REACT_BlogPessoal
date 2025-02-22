@@ -5,6 +5,7 @@ import Postagem from "../../../models/Postagem";
 import Tema from "../../../models/Tema";
 import { buscar, atualizar, cadastrar } from "../../../services/Service";
 import { RotatingLines } from "react-loader-spinner";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function FormPostagem() {
 
@@ -59,7 +60,7 @@ function FormPostagem() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado');
+            ToastAlerta("Você precisa estar logado para acessar essa página!", "erro")
             navigate('/');
         }
     }, [token])
@@ -103,14 +104,15 @@ function FormPostagem() {
                         Authorization: token,
                     },
                 });
-
-                alert('Postagem atualizada com sucesso')
+                ToastAlerta("Postagem Atualizada com sucesso!", "sucesso")
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout()
                 } else {
-                    alert('Erro ao atualizar a Postagem')
+
+                    ToastAlerta("Erro ao atualizar a Postagem", "erro")
+                    
                 }
             }
 
@@ -122,13 +124,13 @@ function FormPostagem() {
                     },
                 })
 
-                alert('Postagem cadastrada com sucesso');
+                ToastAlerta("Postagem Cadastrada com sucesso!", "sucesso")
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout()
                 } else {
-                    alert('Erro ao cadastrar a Postagem');
+                    ToastAlerta("Erro ao Cadastrar a Postagem", "erro")
                 }
             }
         }

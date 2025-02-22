@@ -5,6 +5,7 @@ import { AuthContext } from "../../../contexts/AuthContext";
 import Tema from "../../../models/Tema";
 import { buscar } from "../../../services/Service";
 import { DNA } from "react-loader-spinner";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function ListaTemas() {
 
@@ -33,7 +34,7 @@ function ListaTemas() {
 
     useEffect(()=>{
         if(token===''){
-            alert('Você precisa estar logado para acessar essa página');
+            ToastAlerta("Você precisa estar logado para acessar essa página!", "erro")
             navigate('/');
         }}, [token]);
 
