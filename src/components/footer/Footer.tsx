@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-=======
 import { GithubLogo, InstagramLogo, LinkedinLogo } from '@phosphor-icons/react'
 import { ReactNode, useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
->>>>>>> Perfil_Alertas
 
 function Footer() {
   let data = new Date().getFullYear();
