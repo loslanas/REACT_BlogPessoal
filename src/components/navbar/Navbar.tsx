@@ -1,27 +1,52 @@
-import React from 'react'
+import {ReactNode, useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
+import { ToastAlerta } from '../../utils/ToastAlerta';
 
 function Navbar() {
-  return (
+  
+  const navigate = useNavigate();
+
+  const{usuario,handleLogout} = useContext(AuthContext);
+
+  function logout(){
+    handleLogout();
+    ToastAlerta('O Usuário foi desconectado com sucesso!', 'info')
+    navigate("/")
+  }
+
+  let component:ReactNode
+
+  if(usuario.token !==""){
+
+    component = (
+  
    <div>
-    <header>
-      <div id="header_content" className="flex justify-between px-8 py-3  bg-indigo-800 text-white ">    
+    <div>
+      <div id="header_content" className="flex justify-between px-8 py-3  bg-orange-900 text-white ">    
         <div id="titulo" className="text-2xl font-bold ">
-          <a href ="#" id="">Blog Pessoal
-        </a>
+          <Link to="/home" className="text-2xl font-bold font-['Sixtyfour_Convergence']">Blog Pessoal
+        </Link>
         </div>
         <div id ="menu">
           <ul className="flex gap-4 ">
-            <li><a href="#" className="hover:text-orange-500">Postagens</a></li>
-            <li><a href="#" className="hover:text-orange-500">Temas</a></li>         
-            <li><a href="#" className="hover:text-orange-500">Cadastrar</a></li>
-            <li><a href="#" className="hover:text-orange-500">Tema</a></li>        
-            <li><a href="#" className="hover:text-orange-500">Perfil</a></li>         
-            <li><a href="#" className="hover:text-orange-500">Sair</a></li> </ul>
+            <Link to="/postagens" className="hover:text-orange-500">Postagens</Link>
+            <Link to="/temas" className="hover:text-orange-500">Temas</Link>         
+            <Link to='/cadastrartema' className="hover:text-orange-500">Cadastrar Tema</Link>      
+            <Link to="/perfil" className="hover:text-orange-500">Perfil</Link>         
+            <Link to ="" onClick={logout} className="hover:text-orange-500">Sair</Link> </ul>
         </div>
       </div>
-    </header>
+    </div>
     </div>
   );
 };
+
+return(
+  <>
+  {component}
+  </>
+)
+}
 
 export default Navbar
